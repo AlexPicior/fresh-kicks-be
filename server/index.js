@@ -16,10 +16,7 @@ initializePassport(passport, getUserByEmail, getUserById);
 
 const PORT = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== "production";
-const corsOptions = {
-  origin: 'https://fresh-kicks.up.railway.app',
-  optionsSuccessStatus: 200 
-}
+
 // const app = express();
 // const handle = app.getRequestHandler();
 
@@ -46,7 +43,7 @@ const corsOptions = {
 
     server.use(flash());
 
-    server.use(cors(corsOptions));
+    server.use(cors());
     
     server.use(
       session({
