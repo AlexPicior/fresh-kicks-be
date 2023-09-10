@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
+const cors = require('cors');
 const pool = require('./routes/db');
 const Sequelize = require("sequelize");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -15,6 +16,10 @@ initializePassport(passport, getUserByEmail, getUserById);
 
 const PORT = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== "production";
+const corsOptions = {
+  origin: 'http://fresh-kicks.up.railway.app',
+  optionsSuccessStatus: 200 
+}
 // const app = express();
 // const handle = app.getRequestHandler();
 
@@ -40,6 +45,8 @@ const dev = process.env.NODE_ENV !== "production";
     server.use(express.urlencoded({ extended: false }));
 
     server.use(flash());
+
+    server.use(cors(corsOptions));
     
     server.use(
       session({
