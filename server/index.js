@@ -16,12 +16,12 @@ initializePassport(passport, getUserByEmail, getUserById);
 
 const PORT = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== "production";
-const app = next({ dev });
-const handle = app.getRequestHandler();
+// const app = express();
+// const handle = app.getRequestHandler();
 
-app
-  .prepare()
-  .then(() => {
+// app
+//   .prepare()
+//   .then(() => {
     const server = express();
     pool.connect()
     .then(() => {
@@ -56,18 +56,18 @@ app
 
     server.use("/api", showRoutes(server));
 
-    server.get("*", (req, res) => {
-      return handle(req, res);
-    });
+    // server.get("*", (req, res) => {
+    //   return handle(req, res);
+    // });
 
     server.listen(PORT, err => {
       if (err) throw err;
       console.log(`> Ready on ${PORT}`);
     });
-  })
-  .catch(ex => {
-    console.log(intra);
-    console.error(ex.stack);
-    process.exit(1);
-  });
+  // })
+  // .catch(ex => {
+  //   console.log(intra);
+  //   console.error(ex.stack);
+  //   process.exit(1);
+  // });
 
