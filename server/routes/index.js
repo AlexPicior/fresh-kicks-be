@@ -63,8 +63,8 @@ function routes(app) {
   })
 
   router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/sign_in',
+    successRedirect: 'https://fresh-kicks.up.railway.app',
+    failureRedirect: 'https://fresh-kicks.up.railway.app/sign_in',
     failureFlash: true
   }))
 
