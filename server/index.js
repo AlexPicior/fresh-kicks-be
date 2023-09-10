@@ -17,7 +17,7 @@ initializePassport(passport, getUserByEmail, getUserById);
 const PORT = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== "production";
 const corsOptions = {
-  origin: 'http://fresh-kicks.up.railway.app',
+  origin: 'https://fresh-kicks.up.railway.app',
   optionsSuccessStatus: 200 
 }
 // const app = express();
