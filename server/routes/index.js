@@ -45,7 +45,7 @@ function routes(app) {
   router.get("/isNotAuth", (req, res)=>{
     if(!req.isAuthenticated())
     {
-      res.redirect("/sign_in");
+      res.redirect("https://fresh-kicks.up.railway.app/sign_in");
     }
     else if(req.headers.referer.includes("profile") || req.headers.referer.includes("edit_profile")) res.status(200).send("ok");
   })
@@ -54,7 +54,7 @@ function routes(app) {
     if(req.isAuthenticated())
     {
       
-      res.redirect("/profile");
+      res.redirect("https://fresh-kicks.up.railway.app/profile");
     }
     else
     {
