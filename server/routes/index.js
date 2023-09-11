@@ -52,7 +52,7 @@ function routes(app) {
   router.get("/isNotAuth", (req, res)=>{
     if(!req.isAuthenticated())
     {
-      res.json("redirect");
+      res.json({msg:"redirect"});
     }
     else if(req.headers.referer.includes("profile") || req.headers.referer.includes("edit_profile")) res.status(200).send("ok");
   })
