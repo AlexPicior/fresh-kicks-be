@@ -52,7 +52,7 @@ function routes(app) {
   router.get("/isNotAuth", (req, res)=>{
     if(!req.isAuthenticated())
     {
-      res.redirect("https://fresh-kicks.up.railway.app/sign_in");
+      res.send("redirect");
     }
     else if(req.headers.referer.includes("profile") || req.headers.referer.includes("edit_profile")) res.status(200).send("ok");
   })
