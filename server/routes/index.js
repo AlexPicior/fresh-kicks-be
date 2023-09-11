@@ -4,6 +4,11 @@ const passport = require('passport');
 const productsController = require('./products_controller');
 const authController = require('./auth_controller');
 const stripeController = require('./stripe');
+const cors = require('cors');
+var corsOptions = {
+  origin: 'https://fresh-kicks.up.railway.app',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 
 function routes(app) {
@@ -41,6 +46,8 @@ function routes(app) {
   router.post("/review", authController.addReview);
 
   router.post("/stripe", stripeController.handler);
+
+  router.use(cors(corsOptions));
 
   router.get("/isNotAuth", (req, res)=>{
     if(!req.isAuthenticated())
